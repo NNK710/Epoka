@@ -36,8 +36,8 @@
                     <th scope='row'>".$mission['idMission']. "</th>
                     <th scope='row'>".$mission['debutMission']. "</th>
                     <th scope='row'>".$mission['finMission']. "</th>
-                    <th scope='row'>".ifZero($mission['estValiderMission']). "</th>
-                    <th scope='row'>".ifZero($mission['estPayerMission']). "</th>
+                    <th scope='row'>".ifZeroValide($mission['estValiderMission']). "</th>
+                    <td scope='row'>".ifZeroPaye($mission['estPayerMission']). "</td>
                     <th scope='row'>".idCommuneToString($mission['communeMission']). "</th>
                     <th scope='row'>".idSalarieToString($mission['salarieMission']). "</th>
                     </tr>

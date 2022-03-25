@@ -63,15 +63,16 @@
     ?>
 
     <script>
+        communes = JSON.stringify("./data/commune.json")
         var select = document.getElementById('gender');
         function inner() {
-            for (let index = 0; index < communes.length; index++) {
-                document.getElementById('gender').innerHTML = select.innerHTML+"<option value='0'>"+communes[index]["Nom_commune"]+"</option>"
+            for (let index = 0; index < 5; index++) {
+                document.getElementById('gender').innerHTML = select.innerHTML+"<option value='0'>"+communes[index]['Nom_commune']+"</option>"
             }
             // select.innerHTML = "<option value='0'></option>"
             // select.innerHTML = select.innerHTML + "<option value='0'>Femalee</option>"
         }
-        inner()
+        console.log(communes);
         
     </script>
 

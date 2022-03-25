@@ -1,10 +1,23 @@
 <?php 
-    function ifZero($a){
+    function ifZeroPaye($a){
         if($a == 0){
-            return("Non");
+            return "<form action='update.php' method='POST'><button type='submit'> A Payé</button></form>";
         }
         elseif ($a == 1){
-            return('Oui');
+            return('Payée');
+        }
+        else{
+            return('Valeur incorrecte');
+        }
+
+    }
+
+    function ifZeroValide($a){
+        if($a == 0){
+            return "<form action='update.php' method='POST'><button type='submit'> A Validé</button></form>";
+        }
+        elseif ($a == 1){
+            return('Validée');
         }
         else{
             return('Valeur incorrecte');
