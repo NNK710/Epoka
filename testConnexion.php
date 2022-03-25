@@ -2,7 +2,7 @@
     <?php 
 
     include 'connexionBDD.php';
-
+    echo($users);
     session_start();
 
     if (isset($_POST['identifiant'], $_POST['mdp'])){
