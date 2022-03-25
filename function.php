@@ -26,7 +26,7 @@
     }
 
     function returnToLogin(){
-        header('Location:http://172.16.50.133/Epoka?fail=1');
+        header('Location:http://localhost/Epoka?fail=1');
     }
 
     function idCommuneToString($a){

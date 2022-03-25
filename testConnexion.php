@@ -13,7 +13,7 @@
                 $_SESSION['id'] = true;
             }
         }
-        header('Location: acceuil.php');  
+        header('Location:acceuil.php');  
         }
         
 ?>
