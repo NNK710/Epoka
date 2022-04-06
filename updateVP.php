@@ -9,10 +9,21 @@
 <body>
     <?php
         include 'connexionBDD.php';
+        if(isset($_POST['btnP'])){
+            $idMission = $_POST['btnP'];
+            $sql = "UPDATE mission 
+            SET estPayerMission = 1
+            WHERE idMission = $idMission";
+        }
+        elseif(isset($_POST['btnV'])){
+            $idMission = $_POST['btnV'];
+            $sql = "UPDATE mission 
+            SET estValiderMission = 1
+            WHERE idMission = $idMission";
+        }
+
         
-        $sql = "UPDATE mission 
-        SET estPayerMission = 1
-        WHERE idMission = 1";
+        
 
         $db->exec($sql);
         header('Location:listMission.php');

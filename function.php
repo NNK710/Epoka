@@ -1,7 +1,7 @@
 <?php 
-    function ifZeroPaye($a){
+    function ifZeroPaye($a,$b){
         if($a == 0){
-            return "<form action='update.php' method='POST'><button type='submit'> A Payé</button></form>";
+            return "<form action='updateVP.php' method='POST'><button name='btnP' value=$b type='submit'> A Payé</button></form>";
         }
         elseif ($a == 1){
             return('Payée');
@@ -12,9 +12,9 @@
 
     }
 
-    function ifZeroValide($a){
+    function ifZeroValide($a,$b){
         if($a == 0){
-            return "<form action='update.php' method='POST'><button type='submit'> A Validé</button></form>";
+            return "<form action='updateVP.php' method='POST'><button name='btnV' value=$b type='submit'> A Validé</button></form>";
         }
         elseif ($a == 1){
             return('Validée');
