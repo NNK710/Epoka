@@ -25,9 +25,9 @@
 
     }
 
-    function returnToLogin(){
-        header('Location:http://localhost/Epoka?fail=1');
-    }
+    // function returnToLogin(){
+    //     header('Location:http://localhost/Epoka?fail=1');
+    // }
 
     function idCommuneToString($a){
         include 'connexionBDD.php';

@@ -8,8 +8,11 @@
     if (isset($_POST['identifiant'], $_POST['mdp'])){
         $mdp = $_POST['mdp'];
         $identifiant = strtolower($_POST['identifiant']);
+        $userStatement = $db->prepare("SELECT * FROM salarie");
+        $userStatement->execute();
+        $users = $userStatement->fetchAll(); 
         foreach ($users as $user){
-            if ($mdp === $user['mdpSalarie'] && $identifiant === $user['nomSalarie']){
+            if ($mdp == $user['mdpSalarie'] && $identifiant == $user['nomSalarie']){
                 $_SESSION['id'] = true;
             }
         }

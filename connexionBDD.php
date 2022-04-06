@@ -8,7 +8,4 @@
         {
                 die('Erreur : ' . $e->getMessage());
         }
-        $userStatement = $db->prepare("SELECT * FROM salarie");
-        $userStatement->execute();
-        $users = $userStatement->fetchAll();
 ?>
