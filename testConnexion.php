@@ -12,8 +12,20 @@
         $userStatement->execute();
         $users = $userStatement->fetchAll(); 
         foreach ($users as $user){
-            if ($mdp == $user['mdpSalarie'] && $identifiant == $user['nomSalarie']){
-                $_SESSION['id'] = true;
+            if ($mdp == $user['mdpSalarie'] && $identifiant == $user['nomSalarie'] ){
+                if($user['statutSalarie'] == 1){
+                    $_SESSION['id'] = 'Directeur';
+                }
+                elseif($user['statutSalarie'] == 2){
+                    $_SESSION['id'] = 'Responsable';
+                }
+                elseif($user['statutSalarie'] == 3){
+                    $_SESSION['id'] = 'Comptable';
+                }
+                elseif($user['statutSalarie'] == 4){
+                    $_SESSION['id'] = 'Journaliste';
+                }
+
             }
         }
         header('Location:acceuil.php');  

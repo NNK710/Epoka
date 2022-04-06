@@ -5,6 +5,7 @@
         returnToLogin();
     }
     else{
+        echo($_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@
 </head>
 <body>
     <?php include 'navbar.php' ?>
-
+    
     <form action="listMission.php" method="POST">
         <button type="submit" class="btn btn-primary btn-lg">Liste des Missions</button>
     </form>
