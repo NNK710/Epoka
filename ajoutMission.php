@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    include 'function.php';
+    if (!isset($_SESSION['id'])){
+        returnToLogin();
+    }
+    else{
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -96,3 +105,6 @@
     </script>
 </body>
 </html>
+<?php
+    }
+?>

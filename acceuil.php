@@ -2,8 +2,7 @@
     session_start();
     include 'function.php';
     if (!isset($_SESSION['id'])){
-        //returnToLogin();
-        header('Location:http://localhost/Epoka?fail=1');
+        returnToLogin();
     }
     else{
 ?>
