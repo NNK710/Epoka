@@ -6,7 +6,7 @@
     session_start();
 
     if (isset($_POST['identifiant'], $_POST['mdp'])){
-        $mdp = $_POST['mdp'];
+        $mdp = md5($_POST['mdp']);
         $identifiant = strtolower($_POST['identifiant']);
         $userStatement = $db->prepare("SELECT * FROM salarie");
         $userStatement->execute();
