@@ -22,7 +22,7 @@
     <title>Ajout Mission</title>
 </head>
 <body>
-    <?php include 'connexionBDD.php'; include 'function.php'; include 'navbar.php'?>
+    <?php include 'connexionBDD.php'; include 'navbar.php'?>
 
     <form>
         <div class="mb-3 ms-3">
@@ -57,26 +57,31 @@
         </div>
         <div class="mb-3 ms-3">
             <select name="gender" id="gender" class="select2" data-placeholder="Select Gender">
-                <option></option>
-                <option value="1">Male</option>
-                <option value="0">Female</option>
+                <option>Selectionner une commune</option>
+                <?php 
+                
+                    $communeStatement = $db->prepare("SELECT nomCommune FROM commune ORDER BY nomCommune");
+                    $communeStatement->execute();
+                    $communes = $communeStatement->fetchAll();                
+                    foreach ($communes as $commune) {
+                        echo( "<option>".$commune['nomCommune']."</option>");
+                    }
+                    
+                    //echo "<option>".$communes['nomCommune']."</option>";
+                   
+                ?>
+                
             </select>
         </div>
         <button type="submit" class="btn btn-primary mb-3 ms-3">Valider</button>
     </form>
-    
-    <?php 
-        $strJsonFileContents = file_get_contents("./data/commune.json");
-        $array = json_decode($strJsonFileContents, true);
-        var_dump($array); 
-    ?>
 
     <script>
         communes = JSON.stringify("./data/commune.json")
         var select = document.getElementById('gender');
         function inner() {
             for (let index = 0; index < 5; index++) {
-                document.getElementById('gender').innerHTML = select.innerHTML+"<option value='0'>"+communes[index]['Nom_commune']+"</option>"
+                document.getElementById('gender').innerHTML = "<option value='0'>"+communes[index]['Nom_commune']+"</option>"
             }
             // select.innerHTML = "<option value='0'></option>"
             // select.innerHTML = select.innerHTML + "<option value='0'>Femalee</option>"
