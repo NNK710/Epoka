@@ -32,6 +32,7 @@
         <th scope="col">Payé ?</th>
         <th scope="col">Commune</th>
         <th scope="col">Salarié</th>
+        <th scope="col">Responsable</th>
         </tr>
     </thead>
     <?php 
@@ -39,19 +40,22 @@
         $missionStatement->execute();
         $missions = $missionStatement->fetchAll();
         foreach ($missions as $mission) {
-            echo( "
-                <tbody>
-                    <tr>
-                    <th scope='row'>".$mission['idMission']. "</th>
-                    <th scope='row'>".$mission['debutMission']. "</th>
-                    <th scope='row'>".$mission['finMission']. "</th>
-                    <th scope='row'>".ifZeroValide($mission['estValiderMission'],$mission['idMission']). "</th>
-                    <td scope='row'>".ifZeroPaye($mission['estPayerMission'],$mission['idMission']). "</td>
-                    <th scope='row'>".idCommuneToString($mission['communeMission']). "</th>
-                    <th scope='row'>".idSalarieToString($mission['salarieMission']). "</th>
-                    </tr>
-                </tbody>
-             ");
+            if($_SESSION['id'] == 'Comptable' || $_SESSION['id'] == 'Directeur' || $mission['salarieMission'] == $_SESSION['idSal'] || $mission['responsableMission'] == $_SESSION['idSal']){
+                echo( "
+                    <tbody>
+                        <tr>
+                        <th scope='row'>".$mission['idMission']. "</th>
+                        <th scope='row'>".$mission['debutMission']. "</th>
+                        <th scope='row'>".$mission['finMission']. "</th>
+                        <th scope='row'>".ifZeroValide($mission['estValiderMission'],$mission['idMission'],$mission['responsableMission'])."</th>
+                        <td scope='row'>".ifZeroPaye($mission['estPayerMission'],$mission['idMission']). "</td>
+                        <th scope='row'>".idCommuneToString($mission['communeMission']). "</th>
+                        <th scope='row'>".idSalarieToString($mission['salarieMission']). "</th>
+                        <th scope='row'>".idSalarieToString($mission['responsableMission']). "</th>
+                        </tr>
+                    </tbody>
+                ");
+            }
         }
     ?>
     </table>

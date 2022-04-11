@@ -15,8 +15,9 @@
 
     }
 
-    function ifZeroValide($a,$b){
-        if($a == 0 && ($_SESSION['id'] == 'Directeur' || $_SESSION['id'] == 'Responsable')){
+    function ifZeroValide($a,$b,$c){
+        var_dump($c);
+        if($a == 0 && ($_SESSION['id'] == 'Directeur' || $_SESSION['idSal'] == $c)){
             return "<form action='updateVP.php' method='POST'><button name='btnV' value=$b type='submit'> A Valider</button></form>";
         }
         elseif ($a == 0){
