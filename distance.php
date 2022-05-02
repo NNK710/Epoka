@@ -32,18 +32,23 @@
     </thead>
 
     <div class="d-flex justify-content-center">
-        <div class="card mt-2" style="width: 18rem;height:19rem;">
+        <div class="card mt-2" style="width: 18rem;height:20rem;">
             <div class="card-body">
                 <h5 class="card-title">Entrer une distance</h5>
                 <form action="testConnexion.php" method="POST">
-                    <div class="mb-4">
+                    <div class="mb-1">
                         <label for="exampleInputEmail1" class="form-label">Ville de départ</label>
                         <?php if(isset($fail)){ if($fail == 1){echo("<input style='border-color:red;' type='string' class='form-control' name='identifiant' id='exampleInputEmail1'>");}} else{ echo("<input type='string' class='form-control' name='identifiant' id='exampleInputEmail1'>"); };  ?>
                         
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-1">
                         <label for="exampleInputPassword1" class="form-label">Ville d'arriver</label>
-                        <?php if(isset($fail)){ if($fail == 1){echo("<input style='border-color:red;' type='password' class='form-control' name='mdp' id='exampleInputPassword1'>");}}else{echo("<input type='password' class='form-control' name='mdp' id='exampleInputPassword1'>");}  ?>
+                        <?php if(isset($fail)){ if($fail == 1){echo("<input style='border-color:red;' type='string' class='form-control' name='mdp' id='exampleInputPassword1'>");}}else{echo("<input type='string' class='form-control' name='mdp' id='exampleInputPassword1'>");}  ?>
+                        
+                    </div>
+                    <div class="mb-1">
+                        <label for="exampleInputPassword1" class="form-label">Km</label>
+                        <?php if(isset($fail)){ if($fail == 1){echo("<input style='border-color:red;' type='string' class='form-control' name='mdp' id='exampleInputPassword1'>");}}else{echo("<input type='string' class='form-control' name='mdp' id='exampleInputPassword1'>");}  ?>
                         
                     </div>
                     <div style="color:red" class='mb-2'>
